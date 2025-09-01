@@ -32,4 +32,4 @@ blocks:
       epilogue:
         always:
           commands:
-            - '[[ -d /tmp/test_results ]] && test-results publish /tmp/test_results'
+            - '[[ -f test_results/rspec.xml ]] && test-results publish test_results/rspec.xml'
