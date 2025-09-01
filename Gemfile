@@ -9,4 +9,5 @@ gem 'faker'
 gem 'pry'
 gem 'rspec'
 gem 'rspec_junit_formatter'
+gem "rubocop", require: false
 gem 'webmock'
