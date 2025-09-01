@@ -1,0 +1,35 @@
+version: v1.0
+name: Run Tests
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+execution_time_limit:
+  minutes: 15
+fail_fast:
+  stop:
+    when: branch != 'main'
+  cancel:
+    when: branch = 'main'
+auto_cancel:
+  running:
+    when: branch != 'main'
+  queued:
+    when: branch = 'main'
+blocks:
+  - name: Prepare and Run
+    task:
+      jobs:
+        - name: 'Analyze, Build and Test'
+          commands:
+            - bundle exec rubocop
+            - bundle exec rspec -r rspec_junit_formatter --format RspecJunitFormatter --out test_results/rspec.xml --format progress
+      prologue:
+        commands:
+          - checkout
+          - sem-version ruby 3.3.8
+          - bundle install
+      epilogue:
+        always:
+          commands:
+            - '[[ -d /tmp/test_results ]] && test-results publish /tmp/test_results'
