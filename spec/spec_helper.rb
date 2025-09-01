@@ -8,7 +8,7 @@ WebMock.disable_net_connect!(allow_localhost: true)
 
 require "sms_country"
 
-Dir[Pathname.new(__FILE__).dirname.join('support', '**', '*.rb')].each { |f| require f }
+Dir[Pathname.new(__FILE__).dirname.join("support", "**", "*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
