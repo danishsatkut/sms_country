@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+require_relative "lib/sms_country/version"
+
 Gem::Specification.new do |spec|
   spec.name          = "sms_country"
-  spec.version       = "0.1.0"
+  spec.version       = SmsCountry::VERSION
   spec.authors       = ["Danish Satkut"]
   spec.email         = ["donspy@gmail.com"]
   spec.summary       = "Ruby wrapper for SMS Country API"
@@ -10,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/danishsatkut/sms_country"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 3.0"
+  spec.metadata["rubygems_mfa_required"] = "true"
 
   spec.files         = Dir["lib/**/*", "README.md", "LICENSE"]
   spec.require_paths = ["lib"]
