@@ -10,4 +10,5 @@ gem "pry"
 gem "rspec"
 gem "rspec_junit_formatter"
 gem "rubocop", require: false
+gem "rubocop-rspec", "~> 3.7"
 gem "webmock"
